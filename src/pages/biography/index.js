@@ -1,12 +1,12 @@
 import React from "react"
 import Layout from "../../components/layout"
 
-const album = () => {
+const biography = () => {
   return (
     <Layout>
-      <div>album</div>
+      <div>biography</div>
     </Layout>
   )
 }
 
-export default album
+export default biography

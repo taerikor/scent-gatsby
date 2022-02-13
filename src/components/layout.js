@@ -5,10 +5,13 @@ import Header from "./header"
 const GlobalStyle = createGlobalStyle`
   body {
     margin:0;
-    padding: 0;
+    padding: 100px;
+    background-color: black;
+    color: white;
   }
- `
-export default function Layout({ children }) {
+`
+
+const Layout = ({ children }) => {
   return (
     <>
       <GlobalStyle />
@@ -17,3 +20,5 @@ export default function Layout({ children }) {
     </>
   )
 }
+
+export default Layout

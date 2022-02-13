@@ -4,20 +4,28 @@ import React from "react"
 import styled from "styled-components"
 
 const HeaderContainer = styled.div`
-  background-color: white;
-  width: 100%;
-  height: 50px;
+  /* width: 100%;
+  height: 50px; */
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  & a {
+    all: unset;
+    cursor: pointer;
+  }
 `
 
 const Header = () => {
   return (
     <HeaderContainer>
-      <Link to="/album">album</Link>
-      <Link to="/">Home</Link>
-      <Link to="/about">about</Link>
+      <Link to="/">LOGO</Link>
+      <Link to="/discography">discography</Link>
+      <Link to="/biography">biography</Link>
+      <Link to="/video">video</Link>
+      <Link to="/contact">contact</Link>
     </HeaderContainer>
   )
 }

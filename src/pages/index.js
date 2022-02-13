@@ -6,14 +6,18 @@ import styled from "styled-components"
 
 const VideoContainer = styled.div`
   width: 100%;
+  height: 100vh;
   z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export default function Home() {
   return (
     <Layout>
       <VideoContainer>
-        <video playsInline autoPlay muted loop width={"100%"} height={"100%"}>
+        <video playsInline autoPlay muted loop width={"70%"}>
           <source src={mainVideo} type="video/mp4" />
         </video>
       </VideoContainer>
