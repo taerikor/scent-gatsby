@@ -30,7 +30,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Link to="/">
-        <StaticImage src={Logo} alt="logo" placeholder="blurred" width={150} />
+        <StaticImage src={Logo} alt="logo" placeholder="blurred" width={180} />
       </Link>
       <Link to="/discography">discography</Link>
       <Link to="/biography">biography</Link>

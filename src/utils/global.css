@@ -3,6 +3,9 @@ body {
   padding: 100px;
   background-color: black;
   color: white;
-  --primary-color: #676ab0;
+  --primary-color: #9798e2;
   --hover-color: white;
+  font-family: "Anonymous Pro", monospace;
 }
+
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
