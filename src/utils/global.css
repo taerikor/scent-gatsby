@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  padding: 100px;
+  background-color: black;
+  color: white;
+  --primary-color: #676ab0;
+  --hover-color: white;
+}
