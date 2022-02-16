@@ -1,5 +1,5 @@
 import { StaticImage } from "gatsby-plugin-image"
-import React from "react"
+import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import Layout from "../../components/layout"
 
@@ -12,17 +12,48 @@ const Description = styled.div`
     font-size: 1.2rem;
   }
 `
-const LinkContent = styled.div``
+const LinkContent = styled.div`
+  margin: 2rem 0;
+  width: 100%;
+  & p {
+    font-size: 1.2rem;
+  }
+`
 const StyledLink = styled.a`
   color: white;
+  &:hover {
+    text-decoration: underline 0.1em rgba(255, 255, 255, 0);
+    transition: text-decoration-color 300ms;
+  }
 `
-export const Header = styled.h1`
+const HeaderWrapper = styled.div`
   margin: 2rem 0;
 `
-const biography = () => {
+
+const HeaderButton = styled.button`
+  all: unset;
+  color: ${props => (props.isContact ? "#666" : "white")};
+  cursor: pointer;
+  font-size: 1.5rem;
+
+  &:hover {
+    color: ${props => (props.isContact ? "white" : "#666")};
+  }
+`
+const Biography = () => {
+  const contactRef = useRef(null)
+  const onContactClick = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
   return (
     <Layout vertical={true}>
-      <Header>Discography</Header>
+      <HeaderWrapper>
+        <HeaderButton>Biography</HeaderButton> /{" "}
+        <HeaderButton isContact={true} onClick={onContactClick}>
+          Contact
+        </HeaderButton>
+      </HeaderWrapper>
       <StaticImage
         src={PROFILE_PATH}
         alt="profile"
@@ -73,25 +104,41 @@ const biography = () => {
           relationships? Is it necessary?
         </p>
       </Description>
-      <LinkContent>
+      <LinkContent ref={contactRef}>
         <p>
           INSTAGRAM:{" "}
-          <StyledLink href="https://www.instagram.com/scentofficial/">
+          <StyledLink
+            href="https://www.instagram.com/scentofficial/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             SCENT
           </StyledLink>{" "}
           /{" "}
-          <StyledLink href="https://www.instagram.com/ocean_hertz/">
+          <StyledLink
+            href="https://www.instagram.com/ocean_hertz/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             OCEANHERTZ
           </StyledLink>{" "}
           /{" "}
-          <StyledLink href="https://www.instagram.com/_ape_reel_/">
+          <StyledLink
+            href="https://www.instagram.com/_ape_reel_/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             APEREEL
           </StyledLink>
         </p>
         <p>
           {" "}
           CONTACT:{" "}
-          <StyledLink href="mailto:scentofficial@gmail.com">
+          <StyledLink
+            href="mailto:scentofficial@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             scentofficial@gmail.com
           </StyledLink>
         </p>
@@ -100,4 +147,4 @@ const biography = () => {
   )
 }
 
-export default biography
+export default Biography

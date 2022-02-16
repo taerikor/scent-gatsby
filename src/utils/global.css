@@ -4,6 +4,7 @@ body {
   color: white;
   --primary-color: #9798e2;
   --hover-color: white;
+  --hover-color-gray: #666;
   font-family: "Anonymous Pro", monospace;
 }
 
