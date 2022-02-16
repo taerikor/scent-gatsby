@@ -4,7 +4,7 @@ import React from "react"
 import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
 
-const Logo = "../assets/img/logo.png"
+const LOGO_PATH = "../assets/img/logo.png"
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -30,12 +30,16 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Link to="/">
-        <StaticImage src={Logo} alt="logo" placeholder="blurred" width={180} />
+        <StaticImage
+          src={LOGO_PATH}
+          alt="logo"
+          placeholder="blurred"
+          width={180}
+        />
       </Link>
       <Link to="/discography">discography</Link>
       <Link to="/biography">biography</Link>
       <Link to="/video">video</Link>
-      <Link to="/contact">contact</Link>
     </HeaderContainer>
   )
 }

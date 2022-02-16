@@ -8,7 +8,8 @@ const ConceptContent = `till you can smell the scent of our music`
 
 const VideoWrapper = styled.div`
   width: 100%;
-  z-index: -1;
+  height: 100vh;
+  z-index: -2;
   display: flex;
   justify-content: center;
   align-items: center;
