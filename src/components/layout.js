@@ -2,35 +2,38 @@ import React from "react"
 import styled from "styled-components"
 import Header from "./header"
 
-const Wrapper = styled.div`
+const VerticalWrapper = styled.div`
   display: flex;
   justify-content: center;
 `
 
-const Content = styled.div`
+const VerticalContent = styled.div`
   max-width: 35rem;
   padding: 4rem 0;
   display: flex;
   align-items: center;
   flex-direction: column;
 `
-const Layout = ({ children, vertical }) => {
-  console.log(vertical)
 
+const HorizontalWrapper = styled.div`
+  width: 100%;
+`
+
+const Layout = ({ children, vertical }) => {
   if (vertical) {
     return (
       <>
         <Header />
-        <Wrapper>
-          <Content>{children}</Content>
-        </Wrapper>
+        <VerticalWrapper>
+          <VerticalContent>{children}</VerticalContent>
+        </VerticalWrapper>
       </>
     )
   } else {
     return (
       <>
         <Header />
-        {children}
+        <HorizontalWrapper>{children}</HorizontalWrapper>
       </>
     )
   }
