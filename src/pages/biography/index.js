@@ -27,30 +27,49 @@ const StyledLink = styled.a`
   }
 `
 const HeaderWrapper = styled.div`
-  margin: 2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(black, transparent);
+  margin-bottom: 20px;
 `
 
 const HeaderButton = styled.button`
   all: unset;
-  color: ${props => (props.isContact ? "#666" : "white")};
+  color: ${props => (props.isContact ? "white" : "#666")};
   cursor: pointer;
   font-size: 1.5rem;
-
+  margin: 0 8px;
   &:hover {
-    color: ${props => (props.isContact ? "white" : "#666")};
+    color: ${props => (props.isContact ? "#666" : "white")};
   }
 `
 const Biography = () => {
+  const [isContactClick, setIsContactClick] = useState(false)
   const contactRef = useRef(null)
+  const bioRef = useRef(null)
   const onContactClick = () => {
+    setIsContactClick(true)
     contactRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+  const onBioClick = () => {
+    setIsContactClick(false)
+    bioRef.current?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
     <Layout vertical={true}>
       <HeaderWrapper>
-        <HeaderButton>Biography</HeaderButton> /{" "}
-        <HeaderButton isContact={true} onClick={onContactClick}>
+        <HeaderButton isContact={!isContactClick} onClick={onBioClick}>
+          Biography
+        </HeaderButton>
+        /
+        <HeaderButton isContact={isContactClick} onClick={onContactClick}>
           Contact
         </HeaderButton>
       </HeaderWrapper>
@@ -60,7 +79,7 @@ const Biography = () => {
         placeholder="blurred"
         width={300}
       />
-      <Description>
+      <Description ref={bioRef}>
         <p>
           SCENT는 일렉트로닉 장르를 기반으로 Oceanhertz(프로듀서)와
           Apereel(보컬)로 이루어진 팀이다. 그들은 그들의 음악을 포함한 모든
