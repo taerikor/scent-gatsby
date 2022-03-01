@@ -11,6 +11,7 @@ const VideosWrapper = styled.div`
 `
 const VideoWrapper = styled.div`
   margin: 10px 20px;
+  border: 1px solid var(--primary-color);
 `
 
 const Video = () => {
@@ -35,7 +36,10 @@ const Video = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={video.snippet.thumbnails.medium.url} />
+            <img
+              src={video.snippet.thumbnails.medium.url}
+              alt={video.snippet.title}
+            />
             {/* <p>{video.snippet.title}</p> */}
           </a>
         </VideoWrapper>

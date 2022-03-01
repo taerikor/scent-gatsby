@@ -48,7 +48,7 @@ const Slider = () => {
             >
               <StaticImage
                 src={"../../assets/img/fwiw.jpg"}
-                alt="logo"
+                alt="for what I whine"
                 placeholder="blurred"
                 width={400}
                 height={400}
@@ -66,7 +66,7 @@ const Slider = () => {
             >
               <StaticImage
                 src={"../../assets/img/twa.jpeg"}
-                alt="logo"
+                alt="Thus, We Are"
                 placeholder="blurred"
                 width={400}
                 height={400}

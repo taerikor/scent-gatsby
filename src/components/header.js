@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 import React from "react"
-
+import { isMobile } from "react-device-detect"
 import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -11,7 +11,8 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   position: absolute;
   top: 0;
-  left: 0;
+  left: ${props => (props.isMobile ? "50%" : "0")};
+  transform: ${props => (props.isMobile ? "translate(-50%, 0%)" : "none")};
   padding: 20px;
   color: var(--primary-color);
   font-size: 1rem;
@@ -28,7 +29,7 @@ const HeaderContainer = styled.div`
 
 const Header = () => {
   return (
-    <HeaderContainer>
+    <HeaderContainer isMobile={isMobile}>
       <Link to="/">
         <StaticImage
           src={LOGO_PATH}
@@ -37,9 +38,13 @@ const Header = () => {
           width={180}
         />
       </Link>
-      <Link to="/discography">discography</Link>
-      <Link to="/biography">biography</Link>
-      <Link to="/video">video</Link>
+      {!isMobile && (
+        <>
+          <Link to="/discography">discography</Link>
+          <Link to="/biography">biography</Link>
+          <Link to="/video">video</Link>
+        </>
+      )}
     </HeaderContainer>
   )
 }
