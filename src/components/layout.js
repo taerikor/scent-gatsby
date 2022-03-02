@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import Header from "./header"
-
+import { useMediaQuery } from "react-responsive"
+import Menu from "./menu"
 const VerticalWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -9,10 +10,11 @@ const VerticalWrapper = styled.div`
 
 const VerticalContent = styled.div`
   max-width: 35rem;
-  padding: 4rem 0;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 30px;
 `
 
 const HorizontalWrapper = styled.div`
@@ -20,23 +22,25 @@ const HorizontalWrapper = styled.div`
 `
 
 const Layout = ({ children, vertical }) => {
-  if (vertical) {
-    return (
-      <>
-        <Header />
-        <VerticalWrapper>
-          <VerticalContent>{children}</VerticalContent>
-        </VerticalWrapper>
-      </>
-    )
-  } else {
-    return (
-      <>
-        <Header />
-        <HorizontalWrapper>{children}</HorizontalWrapper>
-      </>
-    )
-  }
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 770px)" })
+
+  return (
+    <div style={{ height: "100vh" }}>
+      <Header isTabletOrMobile={isTabletOrMobile} />
+      {vertical ? (
+        <>
+          <VerticalWrapper>
+            <VerticalContent>{children}</VerticalContent>
+          </VerticalWrapper>
+        </>
+      ) : (
+        <>
+          <HorizontalWrapper>{children}</HorizontalWrapper>
+        </>
+      )}
+      {isTabletOrMobile && <Menu />}
+    </div>
+  )
 }
 
 export default Layout

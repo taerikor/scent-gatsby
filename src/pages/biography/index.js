@@ -35,7 +35,7 @@ const HeaderWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 70px;
-  background: linear-gradient(black, transparent);
+  background: linear-gradient(var(--dark-color), transparent);
   margin-bottom: 20px;
 `
 
@@ -73,12 +73,7 @@ const Biography = () => {
           Contact
         </HeaderButton>
       </HeaderWrapper>
-      <StaticImage
-        src={PROFILE_PATH}
-        alt="profile"
-        placeholder="blurred"
-        width={300}
-      />
+      <StaticImage src={PROFILE_PATH} alt="profile" placeholder="blurred" />
       <Description ref={bioRef}>
         <p>
           SCENT는 일렉트로닉 장르를 기반으로 Oceanhertz(프로듀서)와

@@ -4,14 +4,13 @@ import styled from "styled-components"
 import Layout from "../../components/layout"
 
 const VideosWrapper = styled.div`
-  width: 100%;
+  padding: 0 200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 `
 const VideoWrapper = styled.div`
-  margin: 10px 20px;
-  border: 1px solid var(--primary-color);
+  padding: 10px 10px;
 `
 
 const Video = () => {
@@ -24,10 +23,8 @@ const Video = () => {
     axios.get(channels).then(res => setVideos(res.data.items))
   }, [])
   const renderVideos = () => {
-    console.log(videos)
     //hover
     //loading
-    //title text size
     return videos.map(video => {
       return (
         <VideoWrapper key={video.etag}>
@@ -40,7 +37,6 @@ const Video = () => {
               src={video.snippet.thumbnails.medium.url}
               alt={video.snippet.title}
             />
-            {/* <p>{video.snippet.title}</p> */}
           </a>
         </VideoWrapper>
       )

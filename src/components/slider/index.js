@@ -9,6 +9,7 @@ import "./styles.css"
 
 import { EffectCoverflow } from "swiper"
 import { StaticImage } from "gatsby-plugin-image"
+import { useMediaQuery } from "react-responsive"
 
 const CardWrapper = styled.div`
   text-align: center;
@@ -21,12 +22,13 @@ const StyledLink = styled.a`
   }
 `
 const Slider = () => {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 770px)" })
   return (
     <>
       <Swiper
         effect={"coverflow"}
         centeredSlides={true}
-        slidesPerView={3}
+        slidesPerView={isTabletOrMobile ? 1 : 3}
         loop={true}
         spaceBetween={100}
         coverflowEffect={{

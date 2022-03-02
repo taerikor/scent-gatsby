@@ -1,8 +1,9 @@
 body {
   margin: 0;
-  background-color: black;
+  background-color: #121212;
   color: white;
   --primary-color: #9798e2;
+  --dark-color: #121212;
   --hover-color: white;
   --hover-color-gray: #666;
   font-family: "Anonymous Pro", monospace;
