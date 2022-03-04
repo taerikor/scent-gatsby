@@ -2,29 +2,52 @@ import axios from "axios"
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import Layout from "../../components/layout"
+import { Ripple } from "react-awesome-spinners"
 
 const VideosWrapper = styled.div`
-  padding: 0 200px;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-column-gap: 6px;
+  grid-row-gap: 6px;
   justify-content: center;
+  align-items: center;
 `
 const VideoWrapper = styled.div`
   padding: 10px 10px;
 `
 
+const Wrapper = styled.div`
+  width: 100%;
+  /* display: flex;
+  justify-content: center; */
+  padding: 0;
+`
+
+const LoadingWrapper = styled.div`
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
+
 const Video = () => {
   const [videos, setVideos] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const CHANNEL_ID = "UCaFs3WT1wZWpmHtPue2tf0g"
     const API_KEY = process.env.YOUTUBE_API_KEY
     const channels = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=20`
-    axios.get(channels).then(res => setVideos(res.data.items))
+    axios
+      .get(channels)
+      .then(res => {
+        setVideos(res.data.items)
+        setIsLoading(false)
+      })
+      .catch(err => console.log(err))
   }, [])
   const renderVideos = () => {
-    //hover
-    //loading
     return videos.map(video => {
       return (
         <VideoWrapper key={video.etag}>
@@ -45,6 +68,14 @@ const Video = () => {
   return (
     <Layout>
       <VideosWrapper>{renderVideos()}</VideosWrapper>
+      {/* <Wrapper>
+      </Wrapper> */}
+
+      {isLoading && (
+        <LoadingWrapper>
+          <Ripple />
+        </LoadingWrapper>
+      )}
     </Layout>
   )
 }

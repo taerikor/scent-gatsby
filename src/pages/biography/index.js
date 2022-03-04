@@ -73,7 +73,10 @@ const Biography = () => {
           Contact
         </HeaderButton>
       </HeaderWrapper>
-      <StaticImage src={PROFILE_PATH} alt="profile" placeholder="blurred" />
+      <div style={{ width: "50%" }}>
+        <StaticImage src={PROFILE_PATH} alt="profile" placeholder="blurred" />
+      </div>
+
       <Description ref={bioRef}>
         <p>
           SCENT는 일렉트로닉 장르를 기반으로 Oceanhertz(프로듀서)와

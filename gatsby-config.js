@@ -11,5 +11,13 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "cover",
+        path: `${__dirname}/src/assets/cover/`,
+      },
+      __key: "cover",
+    },
   ],
 }

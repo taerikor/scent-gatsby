@@ -1,0 +1,88 @@
+{
+  "content": [
+    {
+      "title": "fwiw(for what I whine)",
+      "path": "fwiw.jpg",
+      "streaming": [
+        {
+          "name": "Spotify",
+          "url": "https://open.spotify.com/album/1dRI24SKyGXzZI3LXCS1w9?si=sy6OE2ldSeuJEsJP0ok4zw"
+        },
+        {
+          "name": "Apple Music",
+          "url": "https://music.apple.com/us/album/fwiw-for-what-i-whine/1606711166?i=1606711447"
+        },
+        {
+          "name": "Youtube Music",
+          "url": "https://music.youtube.com/watch?v=jno-H5T_KlU&feature=share"
+        },
+        {
+          "name": "Amazon Music",
+          "url": "https://music.amazon.com/albums/B09R1YF3WS?do=play&trackAsin=B09R1XMPS2&ref=dm_sh_H3McHOD0T4tBj5jybMZVBnL33"
+        },
+        {
+          "name": "Melon",
+          "url": "http://kko.to/FRGYvnlvb"
+        },
+        {
+          "name": "Genie",
+          "url": "http://genie.co.kr/A0F8S3"
+        },
+        {
+          "name": "Vibe",
+          "url": "http://naver.me/FkPsNx41"
+        },
+        {
+          "name": "Bugs",
+          "url": "https://m.bugs.co.kr/track/32452354"
+        },
+        {
+          "name": "Flo",
+          "url": "https://www.music-flo.com/detail/album/edoiyyaey/albumtrack"
+        }
+      ]
+    },
+    {
+      "title": "Thus, We Are",
+      "path": "twa.jpeg",
+      "streaming": [
+        {
+          "name": "Spotify",
+          "url": "https://open.spotify.com/album/6pttbS7mY8ASWc9Dnb9IM7?si=8l2fzleqQQerE7eirJuAgw&dl_branch=1"
+        },
+        {
+          "name": "Apple Music",
+          "url": "https://music.apple.com/us/album/thus-we-are/1579117618"
+        },
+        {
+          "name": "Youtube Music",
+          "url": "https://music.youtube.com/playlist?list=OLAK5uy_lCwKrgjuYIOYWSo2mmYkfsSJKnshftQkU&feature=share"
+        },
+        {
+          "name": "Amazon Music",
+          "url": "https://music.amazon.com/albums/B09BK7VZY8?marketplaceId=ATVPDKIKX0DER&musicTerritory=US"
+        },
+        {
+          "name": "Tidal",
+          "url": "https://store.tidal.com/kr/album/192716815"
+        },
+        {
+          "name": "Melon",
+          "url": "http://kko.to/wYY4QHYfH"
+        },
+        {
+          "name": "Genie",
+          "url": "http://genie.co.kr/0KADR0"
+        },
+        {
+          "name": "Vibe",
+          "url": "http://naver.me/5Fe7Etlq"
+        },
+        {
+          "name": "Bugs",
+          "url": "https://m.bugs.co.kr/album/20412276"
+        }
+      ]
+    }
+  ]
+}

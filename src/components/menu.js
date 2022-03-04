@@ -10,9 +10,6 @@ const HeaderWrapper = styled.div`
   justify-content: space-around;
   bottom: 0;
   z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   background: ${props =>
     props.isMenuClick

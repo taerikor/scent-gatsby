@@ -6,7 +6,10 @@ body {
   --dark-color: #121212;
   --hover-color: white;
   --hover-color-gray: #666;
-  font-family: "Anonymous Pro", monospace;
+  /* font-family: "Noto Serif KR", serif; */
+  font-family: "Noto Sans KR", sans-serif;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@900&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");

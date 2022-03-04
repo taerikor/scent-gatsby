@@ -9,12 +9,11 @@ const LOGO_PATH = "../assets/img/logo.png"
 const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   align-items: ${props => (props.isMobile ? "center" : "start")};
-  padding-top: 20px;
+  margin: 20px 10px;
   color: var(--primary-color);
   font-size: 1rem;
 
@@ -28,7 +27,8 @@ const HeaderContainer = styled.div`
   }
 `
 
-const Header = ({ isTabletOrMobile }) => {
+const Header = () => {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 770px)" })
   return (
     <HeaderContainer isMobile={isTabletOrMobile}>
       <Link to="/">

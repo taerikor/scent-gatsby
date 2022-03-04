@@ -3,15 +3,11 @@ import Layout from "../components/layout"
 import mainVideo from "../assets/main.mp4"
 
 import styled from "styled-components"
+import { useMediaQuery } from "react-responsive"
 
 const ConceptContent = `till you can smell the scent of our music`
 
 const VideoWrapper = styled.div`
-  /* width: 100%;
-  z-index: -2;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
   z-index: -2;
   position: absolute;
   top: 50%;
@@ -32,7 +28,7 @@ const ConceptWrapper = styled.div`
 
     margin: 0 auto;
     border-right: 2px solid var(--primary-color);
-    font-size: 3vw;
+    font-size: ${props => (props.isMobile ? "1.3rem" : "2rem")};
     word-break: break-all;
     text-align: center;
     white-space: nowrap;
@@ -49,7 +45,7 @@ const ConceptWrapper = styled.div`
       width: 0;
     }
     to {
-      width: 24em;
+      width: 19em;
     }
   }
   @keyframes blinkTextCursor {
@@ -63,6 +59,7 @@ const ConceptWrapper = styled.div`
 `
 
 export default function Home() {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 770px)" })
   return (
     <Layout>
       <VideoWrapper>
@@ -70,7 +67,7 @@ export default function Home() {
           <source src={mainVideo} type="video/mp4" />
         </video>
       </VideoWrapper>
-      <ConceptWrapper>
+      <ConceptWrapper isMobile={isTabletOrMobile}>
         <p>{ConceptContent}</p>
       </ConceptWrapper>
     </Layout>
