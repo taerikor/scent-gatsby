@@ -27,7 +27,7 @@ const ConceptWrapper = styled.div`
   & > p {
     position: relative;
     top: 50%;
-    font-family: "Amatic SC", cursive;
+    /* font-family: "Amatic SC", cursive; */
     margin: 0 auto;
     border-right: 2px solid white;
     font-size: 4rem;
@@ -37,7 +37,7 @@ const ConceptWrapper = styled.div`
     letter-spacing: 1px;
 
     ${({ theme }) => theme.tablet` 
-  font-size: 6vw;
+  font-size: 4vw;
   `};
   }
 
@@ -50,7 +50,7 @@ const ConceptWrapper = styled.div`
       width: 0;
     }
     to {
-      width: 14em;
+      width: 24em;
     }
   }
   @keyframes blinkTextCursor {
