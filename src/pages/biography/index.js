@@ -9,6 +9,7 @@ const PROFILE_PATH = "../../assets/img/profile.jpg"
 
 const Description = styled.div`
   margin-top: 30px;
+  font-weight: 200;
   & p {
     margin-bottom: 20px;
     font-size: 1.2rem;
