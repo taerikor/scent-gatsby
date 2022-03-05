@@ -39,13 +39,12 @@ const Video = () => {
 
   useEffect(() => {
     const CHANNEL_ID = "UCaFs3WT1wZWpmHtPue2tf0g"
-    const API_KEY = process.env.YOUTUBE_API_KEY
+    const API_KEY = process.env.GATSBY_YOUTUBE_API_KEY
     const channels = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=20`
     axios
       .get(channels)
       .then(res => {
         setVideos(res.data.items)
-        console.log(res.data.items)
         setIsLoading(false)
       })
       .catch(err => console.log(err))
