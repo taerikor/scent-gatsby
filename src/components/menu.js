@@ -23,6 +23,7 @@ const HeaderWrapper = styled.div`
   & p {
     cursor: pointer;
   }
+  transition: all 0.5s ease-out;
 `
 
 const Menu = () => {
@@ -34,6 +35,9 @@ const Menu = () => {
     <HeaderWrapper isMenuClick={isMenuClick}>
       {isMenuClick && (
         <>
+          <p>
+            <Link to="/">HOME</Link>
+          </p>
           <p>
             <Link to="/discography">DISCOGRAPHY</Link>
           </p>

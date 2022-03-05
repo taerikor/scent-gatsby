@@ -2,12 +2,15 @@ import React from "react"
 import Layout from "../components/layout"
 import mainVideo from "../assets/main.mp4"
 
-import styled from "styled-components"
-import { useMediaQuery } from "react-responsive"
+import styled, { ThemeProvider } from "styled-components"
+import theme from "../styles/theme"
+import media from "../styles/media"
 
 const ConceptContent = `till you can smell the scent of our music`
 
 const VideoWrapper = styled.div`
+  width: 100%;
+  max-width: 600px;
   z-index: -2;
   position: absolute;
   top: 50%;
@@ -17,23 +20,26 @@ const VideoWrapper = styled.div`
 
 const ConceptWrapper = styled.div`
   position: absolute;
-  top: 90%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, 0%);
-  color: var(--primary-color);
+  color: white;
 
   & > p {
     position: relative;
     top: 50%;
-
+    font-family: "Amatic SC", cursive;
     margin: 0 auto;
-    border-right: 2px solid var(--primary-color);
-    font-size: ${props => (props.isMobile ? "1.3rem" : "2rem")};
-    word-break: break-all;
+    border-right: 2px solid white;
+    font-size: 4rem;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    transform: translateY(-50%);
+    letter-spacing: 1px;
+
+    ${({ theme }) => theme.tablet` 
+  font-size: 6vw;
+  `};
   }
 
   & > p {
@@ -45,12 +51,12 @@ const ConceptWrapper = styled.div`
       width: 0;
     }
     to {
-      width: 19em;
+      width: 14em;
     }
   }
   @keyframes blinkTextCursor {
     from {
-      border-right-color: var(--primary-color);
+      border-right-color: white;
     }
     to {
       border-right-color: transparent;
@@ -59,17 +65,18 @@ const ConceptWrapper = styled.div`
 `
 
 export default function Home() {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 770px)" })
   return (
     <Layout>
       <VideoWrapper>
-        <video playsInline autoPlay muted loop>
+        <video playsInline autoPlay muted loop width={"100%"}>
           <source src={mainVideo} type="video/mp4" />
         </video>
       </VideoWrapper>
-      <ConceptWrapper isMobile={isTabletOrMobile}>
-        <p>{ConceptContent}</p>
-      </ConceptWrapper>
+      <ThemeProvider theme={{ ...theme, ...media }}>
+        <ConceptWrapper>
+          <p>{ConceptContent}</p>
+        </ConceptWrapper>
+      </ThemeProvider>
     </Layout>
   )
 }

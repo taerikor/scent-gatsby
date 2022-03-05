@@ -11,16 +11,18 @@ const VideosWrapper = styled.div`
   grid-row-gap: 6px;
   justify-content: center;
   align-items: center;
+  margin: 80px 200px;
 `
 const VideoWrapper = styled.div`
   padding: 10px 10px;
-`
-
-const Wrapper = styled.div`
-  width: 100%;
-  /* display: flex;
-  justify-content: center; */
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease;
+  overflow: hidden;
+  &:hover {
+    transform: scale(1.05);
+  }
 `
 
 const LoadingWrapper = styled.div`
@@ -43,10 +45,12 @@ const Video = () => {
       .get(channels)
       .then(res => {
         setVideos(res.data.items)
+        console.log(res.data.items)
         setIsLoading(false)
       })
       .catch(err => console.log(err))
   }, [])
+
   const renderVideos = () => {
     return videos.map(video => {
       return (
@@ -68,9 +72,6 @@ const Video = () => {
   return (
     <Layout>
       <VideosWrapper>{renderVideos()}</VideosWrapper>
-      {/* <Wrapper>
-      </Wrapper> */}
-
       {isLoading && (
         <LoadingWrapper>
           <Ripple />

@@ -17,18 +17,12 @@ const VerticalContent = styled.div`
   margin-bottom: 30px;
 `
 
-const HorizontalWrapper = styled.div`
-  /* width: 100%; */
-`
-
 const Layout = ({ children, vertical }) => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 770px)" })
 
   return (
-    <div
-    // style={{ height: "100vh" }}
-    >
-      <Header />
+    <div>
+      {!(vertical && isTabletOrMobile) && <Header />}
       {vertical ? (
         <>
           <VerticalWrapper>
@@ -36,9 +30,7 @@ const Layout = ({ children, vertical }) => {
           </VerticalWrapper>
         </>
       ) : (
-        <>
-          <HorizontalWrapper>{children}</HorizontalWrapper>
-        </>
+        <div>{children}</div>
       )}
       {isTabletOrMobile && <Menu />}
     </div>
