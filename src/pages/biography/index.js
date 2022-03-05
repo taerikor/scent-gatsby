@@ -3,7 +3,7 @@ import React, { Fragment, useRef, useState } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import Layout from "../../components/layout"
 import media from "../../styles/media"
-import content from "./content"
+import bio from "./content.json"
 
 const PROFILE_PATH = "../../assets/img/profile.jpg"
 
@@ -70,6 +70,7 @@ const Biography = () => {
     setIsContactClick(false)
     bioRef.current?.scrollIntoView({ behavior: "smooth" })
   }
+
   return (
     <Layout vertical={true}>
       <HeaderWrapper>
@@ -88,7 +89,7 @@ const Biography = () => {
       </ThemeProvider>
 
       <Description ref={bioRef}>
-        {content.map((item, index) => (
+        {bio.content.map((item, index) => (
           <Fragment key={index}>
             <p>{item.ko}</p>
             <p>{item.en}</p>
