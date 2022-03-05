@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 import mainVideo from "../assets/main.mp4"
 
 import styled, { ThemeProvider } from "styled-components"
-import theme from "../styles/theme"
 import media from "../styles/media"
 
 const ConceptContent = `till you can smell the scent of our music`
@@ -72,7 +71,7 @@ export default function Home() {
           <source src={mainVideo} type="video/mp4" />
         </video>
       </VideoWrapper>
-      <ThemeProvider theme={{ ...theme, ...media }}>
+      <ThemeProvider theme={{ ...media }}>
         <ConceptWrapper>
           <p>{ConceptContent}</p>
         </ConceptWrapper>

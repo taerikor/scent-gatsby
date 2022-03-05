@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import React, { useState } from "react"
 import styled from "styled-components"
 
-const HeaderWrapper = styled.div`
+const MenuWrapper = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@ const Menu = () => {
     setIsMenuClick(prev => !prev)
   }
   return (
-    <HeaderWrapper isMenuClick={isMenuClick}>
+    <MenuWrapper isMenuClick={isMenuClick}>
       {isMenuClick && (
         <>
           <p>
@@ -50,7 +50,7 @@ const Menu = () => {
         </>
       )}
       <p onClick={onMenuClick}>MENU</p>
-    </HeaderWrapper>
+    </MenuWrapper>
   )
 }
 

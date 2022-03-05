@@ -3,7 +3,6 @@ import React, { Fragment, useRef, useState } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import Layout from "../../components/layout"
 import media from "../../styles/media"
-import theme from "../../styles/theme"
 import content from "./content"
 
 const PROFILE_PATH = "../../assets/img/profile.jpg"
@@ -82,7 +81,7 @@ const Biography = () => {
           Contact
         </HeaderButton>
       </HeaderWrapper>
-      <ThemeProvider theme={{ ...theme, ...media }}>
+      <ThemeProvider theme={{ ...media }}>
         <ImageWrapper>
           <StaticImage src={PROFILE_PATH} alt="profile" placeholder="blurred" />
         </ImageWrapper>

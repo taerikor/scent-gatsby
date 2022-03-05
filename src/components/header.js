@@ -3,7 +3,6 @@ import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
 import { useMediaQuery } from "react-responsive"
-import theme from "../styles/theme"
 import media from "../styles/media"
 
 const LOGO_PATH = "../assets/img/logo.png"
@@ -37,7 +36,7 @@ const Header = () => {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 770px)" })
   return (
     <>
-      <ThemeProvider theme={{ ...theme, ...media }}>
+      <ThemeProvider theme={{ ...media }}>
         <HeaderContainer isMobile={isTabletOrMobile}>
           <Link to="/">
             <StaticImage

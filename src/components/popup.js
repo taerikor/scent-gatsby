@@ -1,16 +1,8 @@
 import React, { Fragment } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import media from "../styles/media"
-import theme from "../styles/theme"
+import { StyledLink } from "../styles/partials"
 
-const StyledLink = styled.a`
-  color: white;
-  font-size: 2rem;
-  &:hover {
-    text-decoration: underline 0.1em rgba(255, 255, 255, 0);
-    transition: text-decoration-color 300ms;
-  }
-`
 const Modal = styled.div`
   position: fixed;
   z-index: 10;
@@ -46,7 +38,7 @@ const Popup = ({ metaInfo, closePopup }) => {
   }
 
   return (
-    <ThemeProvider theme={{ ...theme, ...media }}>
+    <ThemeProvider theme={{ ...media }}>
       <Modal>
         <ExitButton onClick={onExitClick}>Close</ExitButton>
         <Content>
