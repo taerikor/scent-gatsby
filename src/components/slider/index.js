@@ -4,10 +4,11 @@ import styled from "styled-components"
 
 import "swiper/css"
 import "swiper/css/effect-coverflow"
+import "swiper/css/navigation"
 
 import "./styles.css"
 
-import { EffectCoverflow } from "swiper"
+import { EffectCoverflow, Navigation } from "swiper"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { useMediaQuery } from "react-responsive"
 import JsonData from "./content.json"
@@ -60,6 +61,7 @@ const Slider = ({ images }) => {
     <>
       <Swiper
         effect={"coverflow"}
+        navigation={isTabletOrMobile ? true : false}
         centeredSlides={true}
         slidesPerView={isTabletOrMobile ? 1 : 3}
         loop={true}
@@ -71,7 +73,7 @@ const Slider = ({ images }) => {
           modifier: 1,
           slideShadows: false,
         }}
-        modules={[EffectCoverflow]}
+        modules={[EffectCoverflow, Navigation]}
         className="mySwiper"
       >
         {renderCards()}

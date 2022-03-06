@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   background-image: radial-gradient(
     ellipse at bottom,
     #1a2430 0%,
@@ -13,6 +13,10 @@ body {
   --hover-color-gray: #666;
   font-family: "Noto Serif KR", serif;
   /* font-family: "Noto Sans KR", sans-serif; */
+}
+
+.active {
+  color: #ffffff !important;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;400&display=swap");

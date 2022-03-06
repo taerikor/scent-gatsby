@@ -1,22 +1,24 @@
 import { StaticImage } from "gatsby-plugin-image"
-import React, { Fragment, useRef, useState } from "react"
+import React, { Fragment } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import Layout from "../../components/layout"
 import media from "../../styles/media"
 import bio from "./content.json"
+import { Link as ScrollLink } from "react-scroll"
 
 const PROFILE_PATH = "../../assets/img/profile.jpg"
 
 const Description = styled.div`
-  margin-top: 30px;
+  padding-top: 2rem;
   font-weight: 200;
   & p {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     font-size: 1.2rem;
   }
 `
 const LinksWrapper = styled.div`
-  margin: 2rem 0;
+  padding-top: 10rem;
+  margin-bottom: 45rem;
   width: 100%;
   & p {
     font-size: 1.2rem;
@@ -38,8 +40,14 @@ const HeaderWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 70px;
+  color: var(--hover-color-gray) !important;
   background: linear-gradient(var(--dark-color), transparent);
   margin-bottom: 20px;
+  font-size: 1.5rem;
+  & a {
+    cursor: pointer;
+    margin: 0 8px;
+  }
 `
 
 const ImageWrapper = styled.div`
@@ -49,39 +57,29 @@ const ImageWrapper = styled.div`
   `};
 `
 
-const HeaderButton = styled.button`
-  all: unset;
-  color: ${props => (props.isContact ? "white" : "#666")};
-  cursor: pointer;
-  font-size: 1.5rem;
-  margin: 0 8px;
-  &:hover {
-    color: ${props => (props.isContact ? "#666" : "white")};
-  }
-`
 const Biography = () => {
-  const [isContactClick, setIsContactClick] = useState(false)
-  const contactRef = useRef(null)
-  const bioRef = useRef(null)
-  const onContactClick = () => {
-    setIsContactClick(true)
-    contactRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
-  const onBioClick = () => {
-    setIsContactClick(false)
-    bioRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
-
   return (
     <Layout vertical={true}>
       <HeaderWrapper>
-        <HeaderButton isContact={!isContactClick} onClick={onBioClick}>
+        <ScrollLink
+          activeClass="active"
+          to="bio"
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
           Biography
-        </HeaderButton>
+        </ScrollLink>
         /
-        <HeaderButton isContact={isContactClick} onClick={onContactClick}>
+        <ScrollLink
+          activeClass="active"
+          to="contact"
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
           Contact
-        </HeaderButton>
+        </ScrollLink>
       </HeaderWrapper>
       <ThemeProvider theme={{ ...media }}>
         <ImageWrapper>
@@ -89,15 +87,15 @@ const Biography = () => {
         </ImageWrapper>
       </ThemeProvider>
 
-      <Description ref={bioRef}>
+      <Description name="bio">
         {bio.content.map((item, index) => (
           <Fragment key={index}>
-            <p>{item.ko}</p>
+            <p name={index}>{item.ko}</p>
             <p>{item.en}</p>
           </Fragment>
         ))}
       </Description>
-      <LinksWrapper ref={contactRef}>
+      <LinksWrapper name="contact">
         <p>
           INSTAGRAM:{" "}
           <StyledLink

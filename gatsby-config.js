@@ -1,11 +1,10 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: `scent`,
+    description: `checking release and contacting`,
+    author: `Taeri Kor`,
+    keywords: [`music`, `electronic`, `scent`, `ocean he`],
+  },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,

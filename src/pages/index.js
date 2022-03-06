@@ -18,20 +18,20 @@ const VideoWrapper = styled.div`
 `
 
 const ConceptWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, 0%);
-  color: white;
-
+  /* color: white; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
   & > p {
     position: relative;
-    top: 50%;
-    /* font-family: "Amatic SC", cursive; */
-    margin: 0 auto;
+    margin: 0;
     border-right: 2px solid white;
-    font-size: 4rem;
-    text-align: center;
+    font-size: 1.6em;
+
     white-space: nowrap;
     overflow: hidden;
     letter-spacing: 1px;
@@ -50,9 +50,18 @@ const ConceptWrapper = styled.div`
       width: 0;
     }
     to {
-      width: 24em;
+      width: 21em;
     }
   }
+  ${({ theme }) => theme.tablet` 
+    @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 22em;
+    }
+  `};
   @keyframes blinkTextCursor {
     from {
       border-right-color: white;
@@ -70,12 +79,12 @@ export default function Home() {
         <video playsInline autoPlay muted loop width={"100%"}>
           <source src={mainVideo} type="video/mp4" />
         </video>
+        <ThemeProvider theme={{ ...media }}>
+          <ConceptWrapper>
+            <p>{ConceptContent}</p>
+          </ConceptWrapper>
+        </ThemeProvider>
       </VideoWrapper>
-      <ThemeProvider theme={{ ...media }}>
-        <ConceptWrapper>
-          <p>{ConceptContent}</p>
-        </ConceptWrapper>
-      </ThemeProvider>
     </Layout>
   )
 }

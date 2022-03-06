@@ -2,7 +2,6 @@ import { Link } from "gatsby"
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
-import { useMediaQuery } from "react-responsive"
 import media from "../styles/media"
 
 const LOGO_PATH = "../assets/img/logo.png"
@@ -12,10 +11,15 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   position: fixed;
   top: 0;
+  padding: 0;
 
   margin: 20px 10px;
   color: var(--primary-color);
   font-size: 1rem;
+  & nav {
+    display: flex;
+    flex-direction: column;
+  }
 
   & a {
     all: unset;
@@ -29,15 +33,20 @@ const HeaderContainer = styled.div`
   ${({ theme }) => theme.tablet` 
   left: 50%;
   transform: translate(-50%, 0%);
+  margin: 0;
+  margin-top: 20px;
+
+  & nav {
+    display: none;
+  }
   `};
 `
 
 const Header = () => {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 770px)" })
   return (
     <>
       <ThemeProvider theme={{ ...media }}>
-        <HeaderContainer isMobile={isTabletOrMobile}>
+        <HeaderContainer>
           <Link to="/">
             <StaticImage
               src={LOGO_PATH}
@@ -46,13 +55,11 @@ const Header = () => {
               width={180}
             />
           </Link>
-          {!isTabletOrMobile && (
-            <>
-              <Link to="/discography">discography</Link>
-              <Link to="/biography">biography</Link>
-              <Link to="/video">video</Link>
-            </>
-          )}
+          <nav>
+            <Link to="/discography">discography</Link>
+            <Link to="/biography">biography</Link>
+            <Link to="/video">video</Link>
+          </nav>
         </HeaderContainer>
       </ThemeProvider>
     </>
