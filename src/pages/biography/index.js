@@ -11,6 +11,9 @@ const PROFILE_PATH = "../../assets/img/profile.jpg"
 const Description = styled.div`
   padding-top: 2rem;
   font-weight: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   & p {
     margin-bottom: 2rem;
     font-size: 1.2rem;
@@ -81,13 +84,17 @@ const Biography = () => {
           Contact
         </ScrollLink>
       </HeaderWrapper>
-      <ThemeProvider theme={{ ...media }}>
-        <ImageWrapper>
-          <StaticImage src={PROFILE_PATH} alt="profile" placeholder="blurred" />
-        </ImageWrapper>
-      </ThemeProvider>
 
       <Description name="bio">
+        <ThemeProvider theme={{ ...media }}>
+          <ImageWrapper>
+            <StaticImage
+              src={PROFILE_PATH}
+              alt="profile"
+              placeholder="blurred"
+            />
+          </ImageWrapper>
+        </ThemeProvider>
         {bio.content.map((item, index) => (
           <Fragment key={index}>
             <p name={index}>{item.ko}</p>

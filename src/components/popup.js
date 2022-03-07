@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import styled, { ThemeProvider } from "styled-components"
 import media from "../styles/media"
-import { StyledLink } from "../styles/partials"
+import { HoverLink, StyledLink } from "../styles/partials"
 
 const Modal = styled.div`
   position: fixed;
@@ -53,13 +53,13 @@ const Popup = ({ metaInfo, closePopup }) => {
           </h2>
           {metaInfo.streaming?.map(link => (
             <Fragment key={link.name}>
-              <StyledLink
+              <HoverLink
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {link.name}
-              </StyledLink>
+              </HoverLink>
             </Fragment>
           ))}
         </Content>
