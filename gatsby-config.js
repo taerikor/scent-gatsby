@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `scent`,
     description: `checking release and contacting`,
+    siteUrl: `https://stupefied-lewin-d9a508.netlify.app/`,
     author: `Taeri Kor`,
     keywords: [`music`, `electronic`, `scent`, `ocean`, `hertz`, `ape`, `reel`],
   },
