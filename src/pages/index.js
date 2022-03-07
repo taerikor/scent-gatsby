@@ -4,6 +4,7 @@ import mainVideo from "../assets/main.mp4"
 
 import styled, { ThemeProvider } from "styled-components"
 import media from "../styles/media"
+import Helmet from "../components/seo"
 
 const ConceptContent = `till you can smell the scent of our music`
 
@@ -75,6 +76,7 @@ const ConceptWrapper = styled.div`
 export default function Home() {
   return (
     <Layout>
+      <Helmet title={`Home`} />
       <VideoWrapper>
         <video playsInline autoPlay muted loop width={"100%"}>
           <source src={mainVideo} type="video/mp4" />

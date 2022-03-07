@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import Layout from "../../components/layout"
 import { Ripple } from "react-awesome-spinners"
+import Helmet from "../../components/seo"
 
 const VideosWrapper = styled.div`
   display: grid;
@@ -70,6 +71,7 @@ const Video = () => {
   }
   return (
     <Layout>
+      <Helmet title={`Video`} />
       <VideosWrapper>{renderVideos()}</VideosWrapper>
       {isLoading && (
         <LoadingWrapper>

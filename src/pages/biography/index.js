@@ -5,6 +5,7 @@ import Layout from "../../components/layout"
 import media from "../../styles/media"
 import bio from "./content.json"
 import { Link as ScrollLink } from "react-scroll"
+import Helmet from "../../components/seo"
 
 const PROFILE_PATH = "../../assets/img/profile.jpg"
 
@@ -63,6 +64,7 @@ const ImageWrapper = styled.div`
 const Biography = () => {
   return (
     <Layout vertical={true}>
+      <Helmet title={`Biography`} />
       <HeaderWrapper>
         <ScrollLink
           activeClass="active"

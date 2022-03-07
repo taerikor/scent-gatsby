@@ -2,6 +2,7 @@ import { graphql } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import Layout from "../../components/layout"
+import Helmet from "../../components/seo"
 import Slider from "../../components/slider"
 
 const SliderWrapper = styled.div`
@@ -15,6 +16,7 @@ const SliderWrapper = styled.div`
 const discography = ({ data }) => {
   return (
     <Layout>
+      <Helmet title={`Discography`} />
       <SliderWrapper>
         <Slider images={data.allFile.edges} />
       </SliderWrapper>

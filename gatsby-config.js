@@ -3,12 +3,14 @@ module.exports = {
     title: `scent`,
     description: `checking release and contacting`,
     author: `Taeri Kor`,
-    keywords: [`music`, `electronic`, `scent`, `ocean he`],
+    keywords: [`music`, `electronic`, `scent`, `ocean`, `hertz`, `ape`, `reel`],
   },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
     {
       resolve: "gatsby-source-filesystem",
@@ -18,6 +20,19 @@ module.exports = {
       },
       __key: "cover",
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Scent`,
+        short_name: `Scent`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#6b37bf`,
+        display: `minimal-ui`,
+        icon: `src/assets/icon.png`,
+      },
+    },
+    "gatsby-plugin-offline",
   ],
 }
 require("dotenv").config({
