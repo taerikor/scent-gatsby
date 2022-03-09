@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `scent`,
     description: `checking release and contacting`,
-    siteUrl: `https://stupefied-lewin-d9a508.netlify.app/`,
+    siteUrl: `https://scentofficial.com`,
     author: `Taeri Kor`,
     keywords: [`music`, `electronic`, `scent`, `ocean`, `hertz`, `ape`, `reel`],
   },
@@ -20,6 +20,13 @@ module.exports = {
         path: `${__dirname}/src/assets/cover/`,
       },
       __key: "cover",
+    },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        trackingId: `G-NE3EWNGL5R`,
+        head: true,
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
